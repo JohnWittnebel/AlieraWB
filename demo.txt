@@ -1,0 +1,246 @@
+Game number: 1
+Active player: 1
+HP: 14/20
+Cards: 8
+PP: 0/4
+Evos: 2
+
+Forest Bat (1/1) [X] [0], Forest Bat (1/1) [X] [1], Veight(E) (4/4) [X] [2], Castle[2], 
+Forest Bat (1/1) [ ] [0], Forest Bat (1/1) [ ] [1], Veight(E) (4/4) [X] [2], Castle[2], 
+
+HP: 16/20
+PP: 1/5
+Evos: 1
+Hand:
+0: Drummer (W)
+1: Howling Demon
+2: Howling Demon
+3: Castle
+4: Scream
+5: Rhapsody
+ERROR: attempt to attack through a ward
+Game number: 8
+Active player: 1
+HP: 19/20
+Cards: 4
+PP: 0/5
+Evos: 1
+
+Forest Bat (1/1) [X] [0], Forest Bat (1/1) [X] [1], Castle[2], 
+Harmonic Wolf(E) (3/4) [X] [0], Trill (3/3) [ ] [1], Diva(E) (5/5) [X] [2], 
+
+HP: 6/20
+PP: 0/6
+Evos: 0
+Hand:
+0: Drummer (W)
+1: Howling Demon
+2: Tank
+3: Tank
+4: Cat Maids
+5: Lunelle
+ERROR: attempt to attack through a ward
+Game number: 38
+Active player: 1
+HP: 14/20
+Cards: 2
+PP: 8/8
+Evos: 0
+
+Castle[1], 
+Raging Comm (3/1) [ ] [0], Howling Demon (5/5) [X] [1], Tank (0/2) [ ] [2], Trill (3/3) [ ] [3], Diva(E) (5/5) [X] [4], 
+
+HP: 10/20
+PP: 8/9
+Evos: 0
+Hand:
+0: Howling Demon
+1: Garodeth
+2: Tank
+4 -1
+ERROR: this monster cannot attack face
+Game number: 22
+Active player: 1
+HP: 17/20
+Cards: 5
+PP: 1/3
+Evos: 3
+
+Castle[2], Harmonic Wolf (1/2) [X] [1], 
+Forest Bat (1/1) [ ] [0], Vampy (2/2) [ ] [1], Flautist (1/1) [X] [2], 
+
+HP: 16/20
+PP: 1/4
+Evos: 2
+Hand:
+0: Veight
+1: Howling Demon
+2: Harmonic Wolf
+3: Lunelle
+2 -1
+ERROR: this monster cannot attack face
+Game number: 67
+Active player: 1
+HP: 20/20
+Cards: 5
+PP: 1/1
+Evos: 3
+
+
+Flautist (1/1) [X] [0], Tank (0/2) [ ] [1], 
+
+HP: 18/20
+PP: 0/2
+Evos: 2
+Hand:
+0: Raging Comm
+1: Veight
+2: Rhapsody
+0 -1
+ERROR: this monster cannot attack face
+Game number: 34
+Active player: 1
+HP: 12/20
+Cards: 7
+PP: 5/5
+Evos: 2
+
+Castle[1], 
+Howling Demon (5/5) [ ] [0], Howling Demon(E) (5/5) [X] [1], Garodeth (4/4) [X] [2], Harmonic Wolf (1/2) [ ] [3], 
+
+HP: 11/20
+PP: 0/6
+Evos: 1
+Hand:
+0: Vampy
+1: Vampy
+2: Flautist
+3: Rhapsody
+ERROR: this player cannot evolve
+Game number: 1
+Active player: 2
+HP: 18/20
+Cards: 8
+PP: 1/5
+Evos: 1
+Super Evos: 2
+
+Harmonic Wolf(E) (3/4) [X] [0], Raging Comm (3/1) [ ] [1], 
+
+
+HP: 20/20
+PP: 5/5
+Evos: 2
+Super Evos: 2
+Hand:
+0: Drummer (W)
+1: Scream
+2: Tank
+3: Raging Comm
+4: Harmonic Wolf
+5: Rhapsody
+6: Rhapsody
+7: Garodeth
+ERROR: this player cannot evolve
+Game number: 1
+Active player: 1
+HP: 18/20
+Cards: 8
+PP: 1/5
+Evos: 1
+Super Evos: 2
+
+Harmonic Wolf(E) (3/4) [X] [0], Raging Comm (3/1) [X] [1], 
+Tank (0/2) [ ] [0], 
+
+HP: 20/20
+PP: 0/6
+Evos: 2
+Super Evos: 2
+Hand:
+0: Drummer (W)
+1: Harmonic Wolf
+2: Maestro
+3: Vampy
+4: Howling Demon
+5: Maestro
+6: Garodeth
+7: Trill
+ERROR: this player cannot super evolve
+Game number: 1
+Active player: 1
+HP: 18/20
+Cards: 8
+PP: 1/5
+Evos: 1
+Super Evos: 2
+
+Harmonic Wolf(E) (3/4) [X] [0], Raging Comm (3/1) [X] [1], 
+Tank (0/2) [ ] [0], 
+
+HP: 20/20
+PP: 0/6
+Evos: 2
+Super Evos: 2
+Hand:
+0: Drummer (W)
+1: Harmonic Wolf
+2: Maestro
+3: Vampy
+4: Howling Demon
+5: Maestro
+6: Garodeth
+7: Trill
+ERROR: this player cannot super evolve
+Game number: 1
+Active player: 1
+HP: 20/20
+Cards: 9
+PP: 6/6
+Evos: 2
+Super Evos: 2
+
+
+Vampy(SE) (5/5) [X] [0], 
+
+HP: 20/20
+PP: 5/7
+Evos: 2
+Super Evos: 1
+Hand:
+0: Raging Comm
+1: Raging Comm
+2: Flautist
+3: Rhapsody
+4: Tank
+5: Drummer (W)
+6: Scream
+7: Vampy
+8: Gift
+ERROR: this player cannot evolve
+Game number: 1
+Active player: 1
+HP: 20/20
+Cards: 9
+PP: 6/6
+Evos: 2
+Super Evos: 2
+
+
+Vampy(SE) (5/5) [X] [0], 
+
+HP: 20/20
+PP: 5/7
+Evos: 2
+Super Evos: 1
+Hand:
+0: Raging Comm
+1: Raging Comm
+2: Flautist
+3: Rhapsody
+4: Tank
+5: Drummer (W)
+6: Scream
+7: Vampy
+8: Gift
+ERROR: this player cannot super evolve

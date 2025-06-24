@@ -1,0 +1,66 @@
+Q:
+2. What data will the NN have access to?
+2. What will our input to our NN look like?
+3. What will the output look like?
+
+A:
+1. everything that is displayed. So that includes:
+-cards in hand
+-our hp
+-enemy hp
+-creatures on the board and their stats
+-number of cards in opponent hand
+-our max PP and opponent's max PP
+-our current PP
+
+2. So the question is how do we condense the above into a simple input?
+good question. A problem is that the order of cards in our hand and on board dont REALLY matter, so how can we account
+for this?
+
+One way we can do this is have our input be an array of the number of each card in our hand, something like: [Goblin: 2, Fighter: 1, Barb: 0] for example.
+The board on the other hand, is trickier. We can have a 4-tuple to indicate attack, health, attackable status and card.
+Card is currently unnecessary, but will 100% be important later on. For beginning purposes the hand will have #possible
+card inputs, and the board will have 15 inputs.
+
+For our Fighter+Goblin toy game, we will have:
+30 board inputs (15 each)
+2 hand inputs (number of goblins, number of fighters)
+2 hp inputs (ours + enemy)
+1 handsize input (opp hand size)
+2 PP inputs (our current, our max)
+
+so 37 inputs
+
+3. we want the output to be a number corresponding to an action, and associated parameters.
+i.e. playing the first card should give us the action = "1" and parameters = ["0"]
+we need our function to output all possible legal actions, what function can do this?
+
+An idea: use a NN to initially determine the action (1,2,3,4,etc.) and then feed into another NN that, given this
+action, what our target should be. One way to train this is that if we attempt an illegal action (i.e. we do not have
+the PP to play any card and attempt to play a card) we take 1 damage. This could cause issues once we care about
+vengeance/wrath, but for now this should work. Possible issue of AIs learning to just pass because learning what card to
+play is too hard? maybe, but I doubt it.
+
+So we need:
+
+NN to figure out action
+NN for play card
+NN for attack (this can give us an output for attacker and attackee)
+
+An alternative way to do this is to have 3 outputs on our NN for how strongly we want to perform a certain action, and
+the associated action with each. i.e. we have output:
+[Value: 0.5 playCard, 2, Value 0.25 attack, 2, 1, Value 0.25 pass] and then we opt to play card 2 as a result. This uses
+a lot of outputs, but has the value of being a single NN. We should try both and see what works best. 
+
+In this case we have 6 outputs currently:
+1. Desire to play card (ranges from 0 to 1)
+2. Card to play (will be the card corresdoing to the input array)
+3. Desire to attack (ranges from 0 to 1)
+4. Follower to attack with (ranges from -1 to 4)
+5. Target to attack (ranges from -1 to 4)
+6. Desire to pass (ranges from 0 to 1)
+
+This will expand as more things come into play (battlecry effects, fusion, evolution) and might get hectic. We will see.
+I suspect for something like fusion we may need to incorporate another NN. Not sure how multi-target things will be
+implemented using this either.
+

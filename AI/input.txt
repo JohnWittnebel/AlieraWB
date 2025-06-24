@@ -1,0 +1,62 @@
+
+encoding:
+there 6 possible cards (maiden, goblin, fighter, merc, goliath, death dragon)
+Layer 1-2: basic info:
+-current player HP (5 bits)
+-evolves we have remaining (2 bits)
+-able to evolve (1 bit)
+-PP remaining (4 bits)
+-our max PP (4 bits)
+-enemy max PP (4 bits)
+-number of cards in opponent hand (4 bits)
+-opponent HP (5 bits)
+-evolves opponent has remaining (2 bits)
+-turn number (5 bits)
+
+37 bits
+2x20 bits
+
+Layer 1:
+-Current player HP (5)
+-Opponent HP (5)
+-our current PP (4)
+-our max PP (4)
+
+Layer 2:
+-enemy max PP (4)
+-number of cards in opponent hand (4)
+-evolves remaining + enemy evolves remaining + able to evolve (5)
+-turn number (5)
+
+Layer 3: Our deck info
+-Number of each card left in our deck (6x3) = 18 bits
+
+Layer 4: Opponent deck info
+-Number of each card opponent has played (6x3) = 18 bits
+
+Layers 5-13: contains a 1 of the card that is in your hand at that position
+
+Layers 14-24: card that exists at that location on board (if any), and the following properties:
+-evolved status
+-HP (4 bits)
+-Attack (4 bits)
+-Ward
+-“Storm” status
+-“Rush” status
+
+Each layer needs: 8 + 12 = 20 bits
+
+Layers 25: All 0’s/1’s depending on current player
+
+Thus, game can be encoded as
+5x4x25 stack
+
+Output:
+all possible moves:
+play card (9)
+attack card X into target Y (30)
+evolve card X (5)
+end turn (1)
+valuation (1)
+
+total: 46 outputs
