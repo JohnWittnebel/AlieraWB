@@ -136,6 +136,7 @@ class Monster(Card):
         for func in enemyMonster.clashEffects:
             func(gameState, (activeSide+1)%2, self)
         gameState.clearQueue()
+        
         if (enemyMonster.currHP > 0):
             combatDamageToTake = enemyMonster.currAttack
             damageDealt = enemyMonster.takeCombatDamage(gameState, self.currAttack)

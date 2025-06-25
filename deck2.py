@@ -5,10 +5,10 @@ sys.path.insert(0, './cardArchive/')
 import pickle
 from deck import Deck
 from cardsSimple import *
-from wrathCards import *
+from abyssCards import *
 
 deck1 = [[Tank, 3],
-         [Flautist, 3],
+         [BellRinger, 3],
          [HarmonicWolf, 3],
          [HowlingScream, 3],
          [Vampy, 3],

@@ -30,6 +30,11 @@ MercVal = 3
 GoliathVal = 4
 DeathDragonVal = 5
 
+# New Encodings
+BellRingerVal = 0
+
+
+
 GoblinVal = 0
 NightmareVal = 1
 FighterVal = 2

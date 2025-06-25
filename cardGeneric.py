@@ -8,14 +8,13 @@ def genericTakeDamage(mons, gameState, damage):
 
 def genericDestroy(mons, gameState):
     gameState.queue.append(gameState.removeFollower(mons))
+    if mons.side == 0:
+        gameState.player1.shadows += 1
+    else:
+        gameState.player2.shadows += 1
 
-    #gameState.removeFollower(mons)(gameState)
-    #TODO: queueify, necessary for disco dragon LW/ward/heal
-    # for wrath mirror, I think theres nothing where this matters (only LW are drummer)
-    # with this implementation, card LWs activate before the follower is removed, and basically before anything else, so
-    # the 0/1/1 ward might heal before infiniflame deals face damage
     for func in mons.LWEffects:
-        func(gameState, mons.side)
+        gameState.queue.append(func(gameState, mons.side))
 
 def genericEvolve(mons, gameState):
     if (mons.isEvolved):

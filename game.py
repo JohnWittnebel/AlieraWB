@@ -79,6 +79,8 @@ class Game:
             print("PP: " + str(self.player2.currPP) + "/" + str(self.player2.maxPP))
             print("Evos: " + str(self.player2.currEvos))
             print("Super Evos: " + str(self.player2.currSuperEvos))
+            print("Coin: " + str(self.player2.canCoin))
+            print("Shadows: " + str(self.player2.shadows))
             print("")
             self.board.printBoard()
             print("")
@@ -86,6 +88,7 @@ class Game:
             print("PP: " + str(self.player1.currPP) + "/" + str(self.player1.maxPP))
             print("Evos: " + str(self.player1.currEvos))
             print("Super Evos: " + str(self.player1.currSuperEvos))
+            print("Shadows: " + str(self.player1.shadows))
             print("Hand:")
             self.player1.printHand()
         else:
@@ -95,6 +98,8 @@ class Game:
             print("PP: " + str(self.player2.currPP) + "/" + str(self.player2.maxPP))
             print("Evos: " + str(self.player2.currEvos))
             print("Super Evos: " + str(self.player2.currSuperEvos))
+            print("Shadows: " + str(self.player2.shadows))
+            print("Coin: " + str(self.player2.canCoin))
             print("")
             self.board.printBoard()
             print("")
@@ -102,6 +107,7 @@ class Game:
             print("PP: " + str(self.player1.currPP) + "/" + str(self.player1.maxPP))
             print("Evos: " + str(self.player1.currEvos))
             print("Super Evos: " + str(self.player1.currSuperEvos))
+            print("Shadows: " + str(self.player1.shadows))
             print("Hand:")
             self.player2.printHand()
 
@@ -174,7 +180,7 @@ class Game:
             evolveTarget.superEvolve(self)
 
     def initiateCoinAction(self):
-        if not self.activePlayer.canCoin:
+        if self.activePlayer.canCoin == 0:
             print("ERROR: attempt to use coin illegally")
             return
         self.activePlayer.currPP += 1
@@ -376,8 +382,8 @@ class Game:
             self.currTurn += 1
 
         # Check if coin is activatable
-        if (self.activePlayer == self.player1) and (self.currTurn == 1 or self.currTurn == 6):
-            self.activePlayer.canCoin = True
+        if (self.activePlayer == self.player2) and (self.currTurn == 1 or self.currTurn == 6):
+            self.activePlayer.canCoin = 1
         
         self.startTurn()
 
@@ -543,6 +549,8 @@ class Game:
         # If we cant evolve, we are done
         if not self.activePlayer.canEvolve:
             moves.append([PASS_ACTION])
+            if self.activePlayer.canCoin == 1:
+                moves.append([COIN_ACTION])
             return moves
 
         # Otherwise, Evolving follower moves available, find them
@@ -577,7 +585,7 @@ class Game:
 
         moves.append([PASS_ACTION])
 
-        if self.activePlayer.canCoin:
+        if self.activePlayer.canCoin == 1:
             moves.append([COIN_ACTION])
 
         return moves

@@ -244,3 +244,53 @@ Hand:
 7: Vampy
 8: Gift
 ERROR: this player cannot super evolve
+Game number: 1
+Active player: 1
+HP: 15/20
+Cards: 5
+PP: 1/5
+Evos: 2
+Super Evos: 2
+Coin: 1
+
+Forest Bat (1/1) [X] [0], Forest Bat (1/1) [X] [1], Garodeth (4/4) [X] [2], Forest Bat (1/1) [ ] [3], 
+Vampy(E) (4/4) [X] [0], Forest Bat (1/1) [X] [1], 
+
+HP: 15/20
+PP: 6/6
+Evos: 1
+Super Evos: 2
+Hand:
+0: Veight
+1: Garodeth
+2: Lunelle
+3: Veight
+4: Harmonic Wolf
+5: Scream
+6: Lunelle
+7: Tank
+ERROR: attempt to attack through a ward
+Game number: 1
+Active player: 2
+HP: 20/20
+Cards: 7
+PP: 2/4
+Evos: 1
+Super Evos: 2
+Coin: 1
+
+Bell Ringer (W)(E) (2/4) [X] [0], 
+
+
+HP: 20/20
+PP: 4/4
+Evos: 2
+Super Evos: 2
+Hand:
+0: Vampy
+1: Howling Demon
+2: Tank
+3: Scream
+4: Howling Demon
+5: Rhapsody
+ERROR: this player cannot super evolve

@@ -33,6 +33,7 @@ class Player:
         self.effectProtection = 0
         self.selfPings = 0
         self.selfPingsTurn = 0
+        self.shadows = 0
         self.immune = False
         self.effectImmune = False
         self.leaderEffects = LeaderEffectManager()
