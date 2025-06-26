@@ -547,6 +547,7 @@ class Game:
             currIndex += 1
 
         # If we cant evolve, we are done
+        #TODO: if we are out of evo points, do we still get SEV
         if not self.activePlayer.canEvolve:
             moves.append([PASS_ACTION])
             if self.activePlayer.canCoin == 1:
@@ -582,6 +583,7 @@ class Game:
                             moves.append([SUPER_EVO_ACTION, [currIndex, -1]])
                         for targetIndex in range(len(self.board.fullBoard[(allyBoard+1) % 2])):
                             moves.append([SUPER_EVO_ACTION, [currIndex, targetIndex]])
+                currIndex += 1
 
         moves.append([PASS_ACTION])
 

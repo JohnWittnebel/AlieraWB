@@ -294,3 +294,51 @@ Hand:
 4: Howling Demon
 5: Rhapsody
 ERROR: this player cannot super evolve
+Game number: 1
+Active player: 1
+HP: 20/20
+Cards: 3
+PP: 0/0
+Evos: 2
+Super Evos: 2
+Coin: 0
+Shadows: 0
+
+
+Ghost (1/1) [ ] [0], 
+
+HP: 20/20
+PP: 0/1
+Evos: 2
+Super Evos: 2
+Shadows: 0
+Hand:
+0: Veight
+1: Tank
+2: Maestro
+0 -1
+ERROR: attempt to attack with a monster that cannot attack
+Game number: 1
+Active player: 1
+HP: 20/20
+Cards: 3
+PP: 0/0
+Evos: 2
+Super Evos: 2
+Coin: 0
+Shadows: 0
+
+
+Mimi (2/1) [X] [0], 
+
+HP: 20/20
+PP: 0/1
+Evos: 2
+Super Evos: 2
+Shadows: 0
+Hand:
+0: Mummy
+1: Drummer (W)
+2: Veight
+0 -1
+ERROR: this monster cannot attack face

@@ -22,6 +22,65 @@ class ForestBat(Monster):
         self.encoding = BatVal
         self.hasDrain = 1
 
+class Ghost(Monster):
+    def __init__(self):
+        monsterName = "Ghost"
+        cost = 1
+        monsterAttack = 1
+        monsterMaxHP = 1
+        monsterCurrHP = 1
+
+        Monster.__init__(self, cost, monsterAttack, monsterMaxHP, monsterCurrHP, monsterName)
+        self.encoding = GhostVal
+        self.hasStorm = 1
+        self.canAttack = 1
+        self.turnEndEffects.append(banishSelf(self))
+
+    def destroy(self, gameState):
+        self.banish(gameState)
+        
+
+class Skeleton(Monster):
+    def __init__(self):
+        monsterName = "Skeleton"
+        cost = 0
+        monsterAttack = 1
+        monsterMaxHP = 1
+        monsterCurrHP = 1
+
+        Monster.__init__(self, cost, monsterAttack, monsterMaxHP, monsterCurrHP, monsterName)
+        self.encoding = SkeletonVal
+
+class Mimi(Monster):
+    def __init__(self):
+        monsterName = "Mimi"
+        cost = 1
+        monsterAttack = 2
+        monsterMaxHP = 1
+        monsterCurrHP = 1
+
+        Monster.__init__(self, cost, monsterAttack, monsterMaxHP, monsterCurrHP, monsterName)
+        self.encoding = MimiVal
+        self.hasRush = 1
+        self.canAttack = 1
+        self.canAttackFace = 0
+        self.LWEffects.append(enemyPing(2))
+
+class Coco(Monster):
+    def __init__(self):
+        monsterName = "Coco"
+        cost = 1
+        monsterAttack = 1
+        monsterMaxHP = 2
+        monsterCurrHP = 2
+
+        Monster.__init__(self, cost, monsterAttack, monsterMaxHP, monsterCurrHP, monsterName)
+        self.encoding = CocoVal
+        self.hasRush = 1
+        self.canAttack = 1
+        self.canAttackFace = 0
+        self.LWEffects.append(healFace(2))
+
 class GiftForBloodKin(Spell):
     def __init__(self):
         spellName = "Gift"
@@ -194,6 +253,9 @@ class Orchestration(Spell):
 
 ##### EFFECT FUNCTIONS
 
+def banishSelf(mons):
+    return lambda gameState: mons.banish(gameState)
+
 def healFace(val):
     return lambda gameState, side: gameState.player1.restoreHP(gameState, val) if side == 0 \
     else gameState.player2.restoreHP(gameState, val)
@@ -276,7 +338,7 @@ class Mummy(Monster):
         monsterName = "Mummy"
         cost = 2
         monsterAttack = 2
-        monsterHP = 2
+        monsterMaxHP = 2
         monsterCurrHP = 2
         Monster.__init__(self, cost, monsterAttack, monsterMaxHP, monsterCurrHP, monsterName)
         self.encoding = MummyVal

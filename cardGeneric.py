@@ -16,6 +16,9 @@ def genericDestroy(mons, gameState):
     for func in mons.LWEffects:
         gameState.queue.append(func(gameState, mons.side))
 
+def genericBanish(mons, gameState):
+    gameState.queue.append(gameState.removeFollower(mons))
+
 def genericEvolve(mons, gameState):
     if (mons.isEvolved):
         print("ERROR: monster is already evolved")

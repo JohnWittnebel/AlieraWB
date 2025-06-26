@@ -49,6 +49,7 @@ class Monster(Card):
         self.strikeEffects = []
         self.clashEffects = []
         self.onAllyEvoEffects = []
+        self.onAllySuperEvoEffects = []
         self.onSummonEffects = [] # for when an ally follower is summoned (not played)
         self.turnEndEffects = []
         self.turnStartEffects = []
@@ -102,9 +103,14 @@ class Monster(Card):
     def destroy(self, gameState, *args, **kwargs):
         genericDestroy(self, gameState)
 
+    def banish(self, gameState, *args, **kwargs):
+        genericBanish(self, gameState)
+
     # called when an effect attempts to destroy (bane, destroy follower, etc.). Might not actually
     # destroy if the target has protection
     def effectDestroy(self, gameState, *args, **kwargs):
+        if self.side == gameState.activePlayer.playerNum and self.isSuperEvolved:
+            return
         genericDestroy(self, gameState)
 
     def leaderStrike(self, gameState, myIndex, *args, **kwargs):
@@ -139,9 +145,9 @@ class Monster(Card):
         
         if (enemyMonster.currHP > 0):
             combatDamageToTake = enemyMonster.currAttack
-            damageDealt = enemyMonster.takeCombatDamage(gameState, self.currAttack)
             if self.isSuperEvolved == False:
                 damageTaken = self.takeCombatDamage(gameState, combatDamageToTake)
+            damageDealt = enemyMonster.takeCombatDamage(gameState, self.currAttack)
             if self.hasDrain == 1:
                 if activeSide == 0:
                     gameState.player1.restoreHP(gameState, damageDealt)
@@ -149,5 +155,5 @@ class Monster(Card):
                     gameState.player2.restoreHP(gameState, damageDealt)
             if self.hasBane:
                 enemyMonster.effectDestroy(gameState)
-            if enemyMonster.hasBane and self.isSuperEvolved == False:
+            if enemyMonster.hasBane:
                 self.effectDestroy(gameState)

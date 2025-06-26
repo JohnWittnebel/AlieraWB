@@ -32,8 +32,10 @@ DeathDragonVal = 5
 
 # New Encodings
 BellRingerVal = 0
-
-
+GhostVal = 1
+MummyVal = 2
+CocoVal = 3
+MimiVal = 4
 
 GoblinVal = 0
 NightmareVal = 1
