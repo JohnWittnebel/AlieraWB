@@ -158,3 +158,6 @@ class Monster(Card):
                 enemyMonster.effectDestroy(gameState)
             if enemyMonster.hasBane:
                 self.effectDestroy(gameState)
+
+    def applyDivineShield(self):
+        self.hasDivineShield = 1

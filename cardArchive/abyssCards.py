@@ -122,11 +122,12 @@ class Ceres(Monster):
         self.encoding = CeresVal
         self.hasBane = 1
 
-        self.endTurnEffects.append(healFace(2))
+        self.turnEndEffects.append(healFaceActive(2))
    
     def superEvolve(self, gameState):
-        self.endTurnEffects[0] = healFace(4)
-        self.endTurnEffects.append(divineShield(self))
+        self.turnEndEffects[0] = healFaceActive(4)
+        self.turnEndEffects.append(divineShield(self))
+        genericSuperEvolve(self, gameState)
     
 
 class SummonBloodKin(Spell):
@@ -293,8 +294,12 @@ def healFace(val):
     return lambda gameState, side: gameState.player1.restoreHP(gameState, val) if side == 0 \
     else gameState.player2.restoreHP(gameState, val)
 
+def healFaceActive(val):
+    return lambda gameState: gameState.player1.restoreHP(gameState, val) if gameState.activePlayer.playerNum == 1 \
+    else gameState.player2.restoreHP(gameState, val)
+
 def divineShield(mons):
-    return lambda gameState: mons.divineShield = 1
+    return lambda gameState: mons.applyDivineShield()
 
 def selfPing(val):
     return lambda gameState: gameState.activePlayer.takeEffectDamage(gameState, val)

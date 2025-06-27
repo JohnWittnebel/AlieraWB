@@ -37,6 +37,8 @@ MummyVal = 2
 CocoVal = 3
 MimiVal = 4
 ReaperDeathslashVal = 5
+CeresVal = 6
+
 
 GoblinVal = 0
 NightmareVal = 1
