@@ -22,6 +22,7 @@ class Monster(Card):
         self.hasStorm = 0
         self.hasRush = 0
         self.hasBane = 0
+        self.hasDivineShield = 0
         self.canAttack = 0
         self.hasWard = 0
         self.hasDrain = 0

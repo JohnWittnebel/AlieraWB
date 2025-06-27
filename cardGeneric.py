@@ -1,6 +1,9 @@
 # For generic card functions
 
 def genericTakeDamage(mons, gameState, damage):
+    if (mons.hasDivineShield):
+        mons.hasDivineShield = 0
+        return 0
     mons.currHP -= damage
     if (mons.currHP <= 0):
         mons.destroy(gameState)

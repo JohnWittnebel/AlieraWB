@@ -212,12 +212,15 @@ def singleGame(botGame, currPosSave = 0):
         if (uinput1 == "1"):
             print("input card:")
             uinput2 = input("")
-            uinput3 = input("target?\n")
             if (len(uinput2) > 0):
                 uinput2 = int(uinput2)
-                if (len(uinput3) > 0):
-                    uinput3 = int(uinput3)
-                    x.initiateAction([int(uinput1),[uinput2, uinput3]])
+                cardInputs = []
+                if x.activePlayer.hand[uinput2].numTargets > 0:
+                    for _ in range(x.activePlayer.hand[uinput2].numTargets):
+                        uinput3 = input("targets?\n")
+                        cardInputs.append(int(uinput3))
+                if (len(cardInputs) > 0):
+                    x.initiateAction([int(uinput1),[uinput2] + cardInputs])
                 else:
                     x.initiateAction([int(uinput1),[uinput2]])
         if (uinput1 == "2"):

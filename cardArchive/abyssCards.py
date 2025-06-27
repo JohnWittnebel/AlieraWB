@@ -96,6 +96,39 @@ class GiftForBloodKin(Spell):
         genericSummon(ForestBat(), gameState, currSide)
         genericSummon(ForestBat(), gameState, (currSide + 1) % 2)
 
+class ReaperDeathslash(Spell):
+    def __init__(self):
+        spellName = "Reaper Deathslash"
+        spellCost = 1
+        allyFollowerTargets = 1
+        enemyFollowerTargets = 1
+        Spell.__init__(self, spellName, spellCost, allyFollowerTargets, enemyFollowerTargets)
+        self.encoding = ReaperDeathslashVal
+
+    def play(self, gameState, currSide, targets):
+        gameState.board.fullBoard[currSide][targets[0]].effectDestroy(gameState)
+        gameState.board.fullBoard[(currSide + 1) % 2][targets[1]].effectDestroy(gameState)
+
+
+class Ceres(Monster):
+    def __init__(self):
+        monsterName = "Ceres"
+        cost = 4
+        monsterAttack = 1
+        monsterMaxHP = 4
+        monsterCurrHP = 4
+
+        Monster.__init__(self, cost, monsterAttack, monsterMaxHP, monsterCurrHP, monsterName)
+        self.encoding = CeresVal
+        self.hasBane = 1
+
+        self.endTurnEffects.append(healFace(2))
+   
+    def superEvolve(self, gameState):
+        self.endTurnEffects[0] = healFace(4)
+        self.endTurnEffects.append(divineShield(self))
+    
+
 class SummonBloodKin(Spell):
     def __init__(self):
         spellName = "Summon BK"
@@ -259,6 +292,9 @@ def banishSelf(mons):
 def healFace(val):
     return lambda gameState, side: gameState.player1.restoreHP(gameState, val) if side == 0 \
     else gameState.player2.restoreHP(gameState, val)
+
+def divineShield(mons):
+    return lambda gameState: mons.divineShield = 1
 
 def selfPing(val):
     return lambda gameState: gameState.activePlayer.takeEffectDamage(gameState, val)

@@ -79,8 +79,8 @@ class Game:
             print("PP: " + str(self.player2.currPP) + "/" + str(self.player2.maxPP))
             print("Evos: " + str(self.player2.currEvos))
             print("Super Evos: " + str(self.player2.currSuperEvos))
-            print("Coin: " + str(self.player2.canCoin))
             print("Shadows: " + str(self.player2.shadows))
+            print("Coin: " + str(self.player2.canCoin))
             print("")
             self.board.printBoard()
             print("")
@@ -491,12 +491,19 @@ class Game:
         allyBoard = self.activePlayer.playerNum - 1
         #legalTargets = self.getLegalTargets(card, currIndex)
 
+        allyBoardArr = self.board.fullBoard[allyBoard]
+        enemyBoardArr = self.board.fullBoard[(allyBoard+1) % 2]
         if (card.numTargets == 0):
             moves.append([PLAY_ACTION, [currIndex]])
             # For now we only support battlecries that have a single target
         if (card.fanfareTargetFace):
             moves.append([PLAY_ACTION, [currIndex, -1]])
-        if (card.numEnemyFollowerTargets == 1):
+        if (card.numEnemyFollowerTargets == 1) and (card.numAllyFollowerTargets == 1):
+            for allyTargetIndex in range(len(allyBoardArr)):
+                for enemyTargetIndex in range(len(enemyBoardArr)):
+                    if isinstance(allyBoardArr[allyTargetIndex], Monster) and isinstance(enemyBoardArr[enemyTargetIndex], Monster):
+                         moves.append([PLAY_ACTION, [currIndex, allyTargetIndex, enemyTargetIndex]])
+        elif (card.numEnemyFollowerTargets == 1):
             for targetIndex in range(len(self.board.fullBoard[(allyBoard+1) % 2])):
                 if isinstance(self.board.fullBoard[(allyBoard+1) % 2][targetIndex], Monster):
                     moves.append([PLAY_ACTION, [currIndex, targetIndex]])
