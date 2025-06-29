@@ -21,6 +21,7 @@ EVO_ACTION = 3
 SUPER_EVO_ACTION = 4
 PASS_ACTION = 5
 COIN_ACTION = 6
+ENGAGE_ACTION = 7
 
 # For Encoding purposes
 GoblinVal = 0
@@ -38,7 +39,7 @@ CocoVal = 3
 MimiVal = 4
 ReaperDeathslashVal = 5
 CeresVal = 6
-
+GhostAmuletVal = 7
 
 GoblinVal = 0
 NightmareVal = 1

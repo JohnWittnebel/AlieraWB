@@ -10,6 +10,21 @@ sys.path.insert(0, '..')
 
 ##### TOKENS
 
+class GhostAmulet(Amulet):
+    def __init__(self):
+        name = "GhostAmulet"
+        cost = 3
+        allyFollowerTargets = 0
+        enemyFollowerTargets = 0
+        isCountdown = False
+        countdown = -1
+        Amulet.__init__(self, name, cost, allyFollowerTargets, enemyFollowerTargets, isCountdown, countdown)
+        self.encoding = GhostAmuletVal
+
+        self.canEngage = 1
+        
+        
+
 class ForestBat(Monster):
     def __init__(self):
         monsterName = "Forest Bat"

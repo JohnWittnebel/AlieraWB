@@ -22,7 +22,7 @@ class Amulet(Card):
         self.maxEffPerTurn = 8
         self.currAttack = 0
         self.currHP = 0
-        self.engage = 0
+        self.canEngage = 0
         self.engageCost = 0
         self.engageTargets = 0
         self.engageTargetsNecessary = 0

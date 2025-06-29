@@ -553,12 +553,21 @@ class Game:
                     moves.append([ATTACK_ACTION, [currIndex, attackable]])
             currIndex += 1
 
+        engages = []
+        currIndex = 0
+        for card in self.board.fullBoard[allyBoard]:
+            if isinstance(card, Amulet) and card.canEngage and card.engageCost <= self.activePlayer.currPP:
+                #TODO engage targets
+                engages.append([ENGAGE_ACTION, currIndex])
+            currIndex += 1
+
         # If we cant evolve, we are done
         #TODO: if we are out of evo points, do we still get SEV
         if not self.activePlayer.canEvolve:
             moves.append([PASS_ACTION])
             if self.activePlayer.canCoin == 1:
                 moves.append([COIN_ACTION])
+                moves += engages
             return moves
 
         # Otherwise, Evolving follower moves available, find them
@@ -597,6 +606,8 @@ class Game:
         if self.activePlayer.canCoin == 1:
             moves.append([COIN_ACTION])
 
+        moves += engages
+
         return moves
 
     # Remove magic numbers from this, maybe implement action as a class. Find some better
@@ -614,6 +625,8 @@ class Game:
             self.initiateSuperEvolve(action[1])
         elif action[0] == COIN_ACTION:
             self.initiateCoinAction()
+        elif action[0] == ENGAGE_ACTION:
+            self.initiateEngage(action[1])
         else:
             print("ERROR: Invalid action:")
             input(action)
