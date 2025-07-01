@@ -254,6 +254,10 @@ def singleGame(botGame, currPosSave = 0):
             continue
         if (uinput1 == "6"):
             x.initiateAction([int(uinput1)])
+
+        #TODO: targets
+        if (uinput1 == "7"):
+            x.initiateAction([int(uinput1)])
         if (uinput1 == "d"):
             myTree = AZMCTS(x)
             myTree.rootInit(hashtable)
@@ -262,7 +266,7 @@ def singleGame(botGame, currPosSave = 0):
             print(myTree.val)
             del(myTree)
             #input("")
-        if (uinput1 == "7"):
+        if (uinput1 == "k"):
             model1 = NeuralNetwork().to("cpu")
             model1.load_state_dict(torch.load("./AI/botModels/currbot.bot"))
             model1.eval()

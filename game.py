@@ -567,7 +567,7 @@ class Game:
             moves.append([PASS_ACTION])
             if self.activePlayer.canCoin == 1:
                 moves.append([COIN_ACTION])
-                moves += engages
+            moves += engages
             return moves
 
         # Otherwise, Evolving follower moves available, find them
